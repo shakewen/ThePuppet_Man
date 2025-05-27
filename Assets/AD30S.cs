@@ -7,7 +7,7 @@ public class AD30S : MonoBehaviour
     
     private void Start()
     {
-        StartCoroutine(AD30sStart());
+        //StartCoroutine(AD30sStart());
     }
 
     IEnumerator AD30sStart()

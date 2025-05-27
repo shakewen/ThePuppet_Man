@@ -22,7 +22,4 @@ public class autoFireCD : MonoBehaviour
 		Object.Destroy(base.gameObject);
 	}
 
-	private void Update()
-	{
-	}
 }

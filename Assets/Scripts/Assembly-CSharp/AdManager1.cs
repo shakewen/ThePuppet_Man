@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityEngine.Events;
+using UnityEngine.Networking;
 public class AdManager1 : MonoBehaviour
 {
     /// <summary>
@@ -14,6 +15,21 @@ public class AdManager1 : MonoBehaviour
     //public static bool isyuanshengshow;
 
     public UnityAction actionCallBack;
+
+    public GameObject hideBtn;
+    public GameObject moreBtn;
+    public GameObject quitBtn;
+    public GameObject kefuBtn;
+    private enum Platform
+    {
+        NONE,
+        VIVO,
+        OPPO,
+        HUAWEI,
+        HONOR,
+        XIAOMI
+    }
+    private Platform currentPlatform;
     static AdManager1()
     {
         //初始化
@@ -21,7 +37,82 @@ public class AdManager1 : MonoBehaviour
         DontDestroyOnLoad(go);
         instance=go.AddComponent<AdManager1>();
     }
-  
+    public void AddBtn(GameObject HideBtn, GameObject MoreBtn, GameObject QuitBtn, GameObject KefuBtn)
+    {
+        hideBtn = HideBtn;
+        moreBtn = MoreBtn;
+        quitBtn = QuitBtn;
+        kefuBtn = KefuBtn;
+        GetPlatform();
+    }
+
+    public void GetPlatform()
+    {
+#if UNITY_ANDROID && !UNITY_EDITOR && !EVALUATING
+using (AndroidJavaClass jc = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+        					   {
+        					    using (AndroidJavaObject jo = jc.GetStatic<AndroidJavaObject>("currentActivity"))
+        					     {
+        					        jo.Call("JudgeChannel");
+        					     }
+        					  } 
+        
+#endif
+    }
+
+    public void SetPlatform(string str)
+    {
+        Debug.Log($"当前平台是: {str}");
+        Platform platform;
+        if (Enum.TryParse(str, out platform))
+        {
+            switch (platform)
+            {
+                case Platform.VIVO:
+                    currentPlatform = Platform.VIVO;
+                    hideBtn.SetActive(true);
+                    moreBtn.SetActive(false);
+                    quitBtn.SetActive(false);
+                    kefuBtn.SetActive(true);
+                    break;
+                case Platform.OPPO:
+                    currentPlatform = Platform.OPPO;
+                    hideBtn.SetActive(true);
+                    moreBtn.SetActive(true);
+                    quitBtn.SetActive(false);
+                    kefuBtn.SetActive(true);
+                    break;
+                case Platform.HUAWEI:
+                    currentPlatform = Platform.HUAWEI;
+                    hideBtn.SetActive(true);
+                    moreBtn.SetActive(false);
+                    quitBtn.SetActive(true);
+                    kefuBtn.SetActive(false);
+                    break;
+                case Platform.HONOR:
+                    currentPlatform = Platform.HONOR;
+                    hideBtn.SetActive(true);
+                    moreBtn.SetActive(false);
+                    quitBtn.SetActive(false);
+                    kefuBtn.SetActive(false);
+                    break;
+                case Platform.XIAOMI:
+                    currentPlatform = Platform.XIAOMI;
+                    hideBtn.SetActive(true);
+                    moreBtn.SetActive(false);
+                    quitBtn.SetActive(false);
+                    kefuBtn.SetActive(false);
+                    break;
+                default://白包
+                    currentPlatform = Platform.NONE;
+                    hideBtn.SetActive(false);
+                    moreBtn.SetActive(false);
+                    quitBtn.SetActive(false);
+                    kefuBtn.SetActive(false);
+                    break;
+            }
+        }
+    }
     /// <summary>
     /// 退出游戏
     /// </summary>

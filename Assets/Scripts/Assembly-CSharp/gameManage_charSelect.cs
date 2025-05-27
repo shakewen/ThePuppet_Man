@@ -1,6 +1,10 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Networking;
+
 
 public class gameManage_charSelect : MonoBehaviour
 {
@@ -27,8 +31,19 @@ public class gameManage_charSelect : MonoBehaviour
 
 	private freeCoin freeCoinScript;
 
-	private void Start()
+	public GameObject hideBtn;
+	public GameObject moreBtn;
+    public GameObject quitBtn;
+	public GameObject kefuBtn;
+
+	
+
+
+    private void Start()
 	{
+		//获取按钮
+		AdManager1.instance.AddBtn(hideBtn, moreBtn, quitBtn, kefuBtn);
+
 		if (PlayerPrefs.GetInt("coin") == 0)
 		{
 			PlayerPrefs.SetInt("coin", 500);
@@ -38,8 +53,9 @@ public class gameManage_charSelect : MonoBehaviour
 		coinText.text = string.Empty + coinCount;
 		check();
 	}
-
-	public void btnPrevious()
+	
+    
+    public void btnPrevious()
 	{
 		freeCoinScript.freeCoinCheck();
 		partsNum--;
@@ -63,10 +79,11 @@ public class gameManage_charSelect : MonoBehaviour
 
 	public void btnPlay()
 	{
+       
 		AdManager1.instance.ShowVideo(() =>
 		{
-			SceneManager.LoadScene("game");
-		});
+            SceneManager.LoadScene("game");
+        });
 	}
 
 	/// <summary>
@@ -148,4 +165,24 @@ public void btnBuy()
 			btnBuyText.text = "购买";
 		}
 	}
+
+	public void btnYinSi()
+	{
+		AdManager1.instance.YinSi();
+	}
+
+	public void btnZhuXiao()
+	{
+		AdManager1.instance.QuitGame();
+	}
+
+	public void btnMore()
+	{
+		AdManager1.instance.More();
+	}
+
+	public void btnKeFu()
+    {
+        AdManager1.instance.KeFu();
+    }
 }
