@@ -57,7 +57,7 @@ public class gameManage_charSelect : MonoBehaviour
     
     public void btnPrevious()
 	{
-		freeCoinScript.freeCoinCheck();
+		//freeCoinScript.freeCoinCheck();
 		partsNum--;
 		if (partsNum < 0)
 		{
@@ -68,7 +68,7 @@ public class gameManage_charSelect : MonoBehaviour
 
 	public void btnNext()
 	{
-		freeCoinScript.freeCoinCheck();
+		//freeCoinScript.freeCoinCheck();
 		partsNum++;
 		if (partsNum > partsObj.Length - 1)
 		{

@@ -866,6 +866,7 @@ GameObject:
   - component: {fileID: 310}
   - component: {fileID: 374}
   - component: {fileID: 294}
+  - component: {fileID: 578}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: body
@@ -1567,7 +1568,7 @@ GameObject:
   - component: {fileID: 377}
   m_Layer: 0
   m_Name: Bip001 Head
-  m_TagString: Untagged
+  m_TagString: head
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4446,7 +4447,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 117}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.54, z: 0}
+  m_LocalPosition: {x: -0.085, y: -0.54, z: 0}
   m_LocalScale: {x: 4.6, y: 4.6, z: 4.6}
   m_Children:
   - {fileID: 194}
@@ -7660,7 +7661,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.016823461, y: -0.000000006053596, z: -0.000000020489097}
+  m_ConnectedAnchor: {x: -0.016823463, y: -0.0000000095460555, z: -0.000000020489097}
   serializedVersion: 2
   m_SwingAxis: {x: 1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -7750,7 +7751,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.056965258, y: -0.00016092672, z: 0.000000017791798}
+  m_ConnectedAnchor: {x: -0.056965258, y: -0.00016092649, z: 0.0000000177918}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -8020,7 +8021,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0021118806, y: 0.000000024214387, z: 0.022677649}
+  m_ConnectedAnchor: {x: -0.002111881, y: 0.000000022351742, z: 0.022677649}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -11353,6 +11354,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &578
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50}
+  m_Enabled: 0
+  m_Avatar: {fileID: 9000000, guid: 6aa1c7cf32899c242a7d6326b8b25aaf, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0c82eff8cf1df4d48961ddc3c72b7b10, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1373898339
 GameObject:
   m_ObjectHideFlags: 0
